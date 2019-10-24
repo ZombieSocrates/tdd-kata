@@ -4,11 +4,23 @@ from bowling import Game
 
 class BowlingTest(unittest.TestCase):
 
-	def test_gutter_game(self):
-		g = Game()
-		for roll in range(20):
-			g.roll(0)
-		self.assertEqual(g.score(), 0)
+
+    def __setup(self):
+        self.g = Game()
+
+    def __roll_many(self, n:int, pins:int):
+        for i in range(n):
+            self.g.roll(pins)
+
+    def test_gutter_game(self):
+        self.__setup()
+        self.__roll_many(n = 20, pins = 0)
+        self.assertEqual(self.g.score(), 0)
+
+    def test_all_ones(self):
+        self.__setup()
+        self.__roll_many(n = 20, pins = 1)
+        self.assertEqual(self.g.score(), 20)
 
 if __name__ == "__main__":
-	unittest.main()
+    unittest.main()
