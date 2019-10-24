@@ -16,6 +16,9 @@ class BowlingTest(unittest.TestCase):
         self.g.roll(5)
         self.g.roll(5)
 
+    def __roll_strike(self):
+        self.g.roll(10)
+
     def test_gutter_game(self):
         self.__setup()
         self.__roll_many(n = 20, pins = 0)
@@ -35,10 +38,10 @@ class BowlingTest(unittest.TestCase):
 
     def test_one_strike(self):
         self.__setup()
-        self.g.roll(10)
+        self.__roll_strike()
         self.g.roll(3)
         self.g.roll(4)
-        self.__roll_many(n = 16, pins =0)
+        self.__roll_many(n = 16, pins = 0)
         self.assertEqual(self.g.score(), 24)
 
 
