@@ -10,7 +10,6 @@ class Game(object):
             self.__rolls[frame_index - 1]) == 10
         return end_frame and ten_pins 
 
-
     def roll(self, pins:int):
         self.__rolls.append(pins)
 

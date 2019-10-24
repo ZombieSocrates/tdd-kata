@@ -30,8 +30,17 @@ class BowlingTest(unittest.TestCase):
         self.__setup()
         self.__roll_spare()
         self.g.roll(3)
-        self.__roll_many(17,0)
+        self.__roll_many(n = 17, pins = 0)
         self.assertEqual(self.g.score(), 16)
+
+    def test_one_strike(self):
+        self.__setup()
+        self.g.roll(10)
+        self.g.roll(3)
+        self.g.roll(4)
+        self.__roll_many(n = 16, pins =0)
+        self.assertEqual(self.g.score(), 24)
+
 
 if __name__ == "__main__":
     unittest.main()
