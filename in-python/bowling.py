@@ -4,7 +4,7 @@ class Game(object):
         self.__score = 0
         self.__rolls = []
 
-    def roll(self, pins:int):
+    def roll(self, pins):
         self.__rolls.append(pins)
 
     def score(self):
@@ -16,19 +16,19 @@ class Game(object):
                 self.__score += self.__strike_bonus(roll_index) 
         return self.__score
 
-    def __is_spare(self, roll_index:int):
+    def __is_spare(self, roll_index):
         end_frame = (roll_index % 2) == 1
         ten_pins = (self.__rolls[roll_index] + 
             self.__rolls[roll_index - 1]) == 10
         return end_frame and ten_pins
 
-    def __spare_bonus(self, roll_index:int):
+    def __spare_bonus(self, roll_index):
         return self.__rolls[roll_index + 1]
 
-    def __is_strike(self, roll_index:int):
+    def __is_strike(self, roll_index):
         return self.__rolls[roll_index] == 10 
 
-    def __strike_bonus(self, roll_index:int):
+    def __strike_bonus(self, roll_index):
         try:
             return self.__rolls[roll_index + 1] + self.__rolls[roll_index + 2]
         except IndexError:

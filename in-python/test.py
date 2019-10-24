@@ -37,7 +37,7 @@ class BowlingTest(unittest.TestCase):
     def __setup(self):
         self.g = Game()
 
-    def __roll_many(self, n:int, pins:int):
+    def __roll_many(self, n, pins):
         for i in range(n):
             self.g.roll(pins)
 
