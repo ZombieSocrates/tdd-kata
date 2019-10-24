@@ -12,6 +12,10 @@ class BowlingTest(unittest.TestCase):
         for i in range(n):
             self.g.roll(pins)
 
+    def __roll_spare(self):
+        self.g.roll(5)
+        self.g.roll(5)
+
     def test_gutter_game(self):
         self.__setup()
         self.__roll_many(n = 20, pins = 0)
@@ -24,8 +28,7 @@ class BowlingTest(unittest.TestCase):
 
     def test_one_spare(self):
         self.__setup()
-        self.g.roll(5)
-        self.g.roll(5) #this is a spare
+        self.__roll_spare()
         self.g.roll(3)
         self.__roll_many(17,0)
         self.assertEqual(self.g.score(), 16)
