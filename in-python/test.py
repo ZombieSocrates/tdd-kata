@@ -22,5 +22,13 @@ class BowlingTest(unittest.TestCase):
         self.__roll_many(n = 20, pins = 1)
         self.assertEqual(self.g.score(), 20)
 
+    def test_one_spare(self):
+        self.__setup()
+        self.g.roll(5)
+        self.g.roll(5) #this is a spare
+        self.g.roll(3)
+        self.__roll_many(17,0)
+        self.assertEqual(self.g.score(), 16)
+
 if __name__ == "__main__":
     unittest.main()
