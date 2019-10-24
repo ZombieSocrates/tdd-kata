@@ -4,21 +4,6 @@ from bowling import Game
 
 class BowlingTest(unittest.TestCase):
 
-
-    def __setup(self):
-        self.g = Game()
-
-    def __roll_many(self, n:int, pins:int):
-        for i in range(n):
-            self.g.roll(pins)
-
-    def __roll_spare(self):
-        self.g.roll(5)
-        self.g.roll(5)
-
-    def __roll_strike(self):
-        self.g.roll(10)
-
     def test_gutter_game(self):
         self.__setup()
         self.__roll_many(n = 20, pins = 0)
@@ -48,6 +33,20 @@ class BowlingTest(unittest.TestCase):
         self.__setup()
         self.__roll_many(n = 12, pins = 10)
         self.assertEqual(self.g.score(), 300)
+
+    def __setup(self):
+        self.g = Game()
+
+    def __roll_many(self, n:int, pins:int):
+        for i in range(n):
+            self.g.roll(pins)
+
+    def __roll_spare(self):
+        self.g.roll(5)
+        self.g.roll(5)
+
+    def __roll_strike(self):
+        self.g.roll(10)
 
 
 if __name__ == "__main__":
