@@ -17,5 +17,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-
+# Things I added for my javascript implementation
+*/node_modules
+*/package-lock.json
 
