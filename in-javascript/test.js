@@ -3,12 +3,17 @@
 
 class BowlingGame {
 	constructor() {
-		console.log("New Game")
+		this.score = 0;
 	};
 
-	roll(pins) {};
+	roll(pins) {
+        this.score += pins;
 
-	score() {};
+	};
+
+	getScore() {
+		return this.score;
+	};
 }
 
 describe("Bowling Scorer", () => {
@@ -18,7 +23,7 @@ describe("Bowling Scorer", () => {
         	g.roll(0)
         }
         let gutterScore = 0;
-        expect(g.score()).toEqual(gutterScore)
+        expect(g.getScore()).toEqual(gutterScore)
       
 	})
 })
