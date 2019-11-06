@@ -3,37 +3,31 @@
 // import {BowlingGame} from "./bowling";
 let games = require('./bowling.js');
 let BowlingGame = games.Game;
+let currGame;
 
+beforeEach( () => {
+	currGame = new BowlingGame();
+})
 
 describe("Bowling Scorer", () => {
 	test("it should score a gutterball game as zero", () => {
-        let g = new BowlingGame();
-        for (let i = 0; i < 20; i++) {
-        	g.roll(0)
-        }
+        currGame.rollMany(pins = 0, times = 20);
         let gutterScore = 0;
-        expect(g.scoreGame()).toEqual(gutterScore);
+        expect(currGame.scoreGame()).toEqual(gutterScore);
       
 	})
 
 	test("it should score all ones game as 20", () => {
-		let g = new BowlingGame();
-		for (let i = 0; i < 20; i++) {
-			g.roll(1)
-		}
+		currGame.rollMany(pins = 1, times = 20);
 		let allOnesScore = 20;
-		expect(g.scoreGame()).toEqual(allOnesScore);
+		expect(currGame.scoreGame()).toEqual(allOnesScore);
 	})
 
 	test("it should score a spare properly", () => {
-		let g = new BowlingGame();
-		g.roll(5);
-		g.roll(5);
-		g.roll(3);
-		for (let i = 0; i < 17; i++) {
-			g.roll(0)
-		}
+		currGame.rollSpare();
+		currGame.roll(3);
+		currGame.rollMany(pins =0, times = 17);
 		let spareGameScore = 16;
-		expect(g.scoreGame()).toEqual(spareGameScore);
+		expect(currGame.scoreGame()).toEqual(spareGameScore);
 	})
 })
