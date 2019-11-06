@@ -1,20 +1,9 @@
 // AAAAAAAAAAARRRRRRGGGGGGGHHH
-// import {BowlingGame} from "bowling.js";
+// ES6-import still busted ... I probably need to use babel
+// import {BowlingGame} from "./bowling";
+let games = require('./bowling.js');
+let BowlingGame = games.Game;
 
-class BowlingGame {
-	constructor() {
-		this.score = 0;
-	};
-
-	roll(pins) {
-        this.score += pins;
-
-	};
-
-	getScore() {
-		return this.score;
-	};
-}
 
 describe("Bowling Scorer", () => {
 	test("it should score a gutterball game as zero", () => {
@@ -23,7 +12,7 @@ describe("Bowling Scorer", () => {
         	g.roll(0)
         }
         let gutterScore = 0;
-        expect(g.getScore()).toEqual(gutterScore)
+        expect(g.scoreGame()).toEqual(gutterScore)
       
 	})
 })
