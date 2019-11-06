@@ -39,4 +39,10 @@ describe("Bowling Scorer", () => {
         let strikeGameScore = 24;
         expect(currGame.scoreGame()).toEqual(strikeGameScore);
     })
+
+    test("it should score a perfect game as 300", () => {
+        currGame.rollMany(pins = 10, times = 12);
+        let perfectScore = 300;
+        expect(currGame.scoreGame()).toEqual(perfectScore);
+    })
 })
