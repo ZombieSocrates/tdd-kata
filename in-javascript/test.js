@@ -24,4 +24,16 @@ describe("Bowling Scorer", () => {
 		let allOnesScore = 20;
 		expect(g.scoreGame()).toEqual(allOnesScore);
 	})
+
+	test("it should score a spare properly", () => {
+		let g = new BowlingGame();
+		g.roll(5);
+		g.roll(5);
+		g.roll(3);
+		for (let i = 0; i < 17; i++) {
+			g.roll(0)
+		}
+		let spareGameScore = 16;
+		expect(g.scoreGame()).toEqual(spareGameScore);
+	})
 })
