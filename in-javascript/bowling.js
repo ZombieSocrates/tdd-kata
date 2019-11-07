@@ -1,4 +1,4 @@
-class BowlingGame {
+export default class BowlingGame {
     constructor() {
         this.ballRolls = [];
         this.score = 0;
@@ -6,18 +6,19 @@ class BowlingGame {
         this.scoreIndex = 0;
     };
 
+
     roll(pins) {
         this.ballRolls.push(pins);
     };
 
-    rollMany(pins, times) {
+    rollMany(pins , times) {
         for (let i = 0; i < times; i++) {
             this.roll(pins);
         }
     };
 
     rollSpare(){
-        this.rollMany(pins = 5, times = 2);
+        this.rollMany(5, 2);
     };
 
     scoreFrame() {
@@ -67,7 +68,3 @@ class BowlingGame {
     };
 };
 
-
-module.exports = {
-    Game: BowlingGame
-}
