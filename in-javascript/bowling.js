@@ -11,14 +11,14 @@ export default class BowlingGame {
         this.ballRolls.push(pins);
     };
 
-    rollMany(pins , times) {
+    rollMany({pins , times}) {
         for (let i = 0; i < times; i++) {
             this.roll(pins);
         }
     };
 
     rollSpare(){
-        this.rollMany(5, 2);
+        this.rollMany({pins:5, times:2});
     };
 
     scoreFrame() {
